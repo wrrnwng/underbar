@@ -93,7 +93,7 @@
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
-    // http://stackoverflow.com/questions/7586870/in-javascript-what-is-the-advantage-of-function-over-function
+    // http://stackoverflow.com/questions/12016213/understanding-the-negate-function-example-from-eloquent-javascript-chapter-6
     return _.filter(collection, function(item) {
       return !test(item);
     });
@@ -101,6 +101,21 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var dupFree = [];
+    var check = function(array, value) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == value) {
+          return true;
+        }
+      }
+      return false;
+    }
+    for (var i = 0; i < array.length; i++) {
+      if (!check(dupFree, array[i])) {
+        dupFree.push(array[i]);
+      }
+    }
+    return dupFree;
   };
 
 
