@@ -217,6 +217,21 @@
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+    return _.reduce(collection, function(accumulator, item) {
+      if (!iterator) {
+        if (!accumulator & !item) {
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        if (!accumulator & !iterator(item)) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }, false);
   };
 
 
