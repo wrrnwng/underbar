@@ -450,13 +450,8 @@
     var list = [];
     var output = [];
 
-    // combine all arrays
     var args = Array.prototype.slice.call(arguments);
-    for (var i = 0; i < args.length; i++) {
-      _.each(args[i], function(item) {
-        list.push(item);
-      });
-    }
+    list = _.flatten(args);
 
     // dup list
     for (var j = 0; j < list.length; j++) {
@@ -473,6 +468,7 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
