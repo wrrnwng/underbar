@@ -468,7 +468,16 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+    var output = array.slice();
+    var compareList = Array.prototype.slice.call(arguments, 1);
+    compareList = _.flatten(compareList)
+    _.each(array, function(arrayItem) {
+      if (_.contains(compareList, arrayItem)) {
+        output.splice(_.indexOf(output, arrayItem), 1);
+      }
+    });
 
+    return output;
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
