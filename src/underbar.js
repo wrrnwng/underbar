@@ -103,12 +103,13 @@
   _.uniq = function(array) {
     var dupFree = [];
     var check = function(array, value) {
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] == value) {
-          return true;
+      var result = false;
+      _.each(array, function(item) {
+        if (item == value) {
+          return result = true;
         }
-      }
-      return false;
+      });
+      return result;
     }
     _.each(array, function(item) {
       if (!check(dupFree, item)) {
