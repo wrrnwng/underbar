@@ -255,11 +255,12 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
-    for (var i = 1; i < arguments.length; i++) {
-      for (var key in arguments[i]) {
-        obj[key] = arguments[i][key];
+    var args = Array.prototype.slice.call(arguments, 1);
+    _.each(args, function(item) {
+      for (var key in item) {
+        obj[key] = item[key];
       }
-    }
+    });
     return obj;
   };
 
