@@ -110,11 +110,11 @@
       }
       return false;
     }
-    for (var i = 0; i < array.length; i++) {
-      if (!check(dupFree, array[i])) {
-        dupFree.push(array[i]);
+    _.each(array, function(item) {
+      if (!check(dupFree, item)) {
+        dupFree.push(item);
       }
-    }
+    });
     return dupFree;
   };
 
