@@ -1,2 +1,2 @@
 #underbar
-This is a project I completed as a student at [remotebeta](http://remotebeta.com). This project was worked on with a pair.
+This is an implementation of underscore.js for the Hack Reactor pre-course. The objective was to construct an underscore clone and try to maintain the DRY principle and a functional style of programming.
